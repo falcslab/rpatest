@@ -1,0 +1,235 @@
+.transitApp {
+    max-width: 1300px;
+    margin: 0 auto 20px;
+}
+
+.transitApp input, .transitApp textarea, .transitApp button {
+    margin-bottom: 10px;
+}
+
+.appTitle {
+    margin: 30px auto 50px;
+    text-align: center;
+}
+
+.boxError {
+    margin: 10px 0 15px;
+    padding: 5px 20px;
+    background: #ffeaf3;
+    border: 2px solid #fb7070;
+}
+
+.boxError span {
+    color: #ff4c4c;
+    font-weight: bold;
+}
+
+.transitApp>.transitForm {
+    margin: 0 auto;
+    width: 700px;
+    float: left;
+    margin-right: 30px;
+}
+
+.transitApp>.resultForm {
+    margin: 0 auto;
+    width: 700px;
+    float: left;
+    margin-right: 30px;
+}
+
+ul.routeList {
+    border: 2px solid #46a667;
+    /* font-size: 123.1%; */
+    overflow: hidden;
+}
+
+ul.routeList li.routerow {
+    padding-bottom: 80px;
+}
+
+ul.routeList li {
+    list-style: none;
+}
+
+ul.routeList dt {
+    width: 12%;
+    font-size: 85%;
+    text-align: center;
+    float: left;
+}
+
+ul.routeList dt div {
+    display: block;
+    background: #eaf5eb;
+}
+
+ul.routeList dd {
+    width: 88%;
+}
+
+ul.routeList dd li {
+    margin-left: 10px;
+    float: left;
+}
+
+ul.routeList dd .time {
+    width: 41%;
+}
+
+ul.routeList dd .fare {
+    width: 16%;
+    margin-left: 0;
+    text-align: right;
+}
+
+ul.routeList dd .transfer {
+    width: 16%;
+    text-align: left;
+}
+
+ul.routeList dd ul.route {
+    margin-top: 40px;
+}
+
+.transitApp>.info {
+    margin: 0 auto;
+    width: 500px;
+    float: left;
+}
+
+.infobox {
+    background-color: linen;
+    border: 2px solid #000;
+    padding: 5px 10px;
+}
+
+.transitForm>.fromto {
+    margin: 0 auto;
+    padding-bottom: 70px;
+    width: 85%;
+}
+
+.transitForm>.option {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+
+.transitForm>.option2 {
+    margin: 0 auto;
+    padding-bottom: 30px;
+    float: left;
+    width: 100%;
+}
+
+.label {
+    width: 70px;
+    float: left;
+}
+
+.label2 {
+    width: 50px;
+    float: left;
+}
+
+dd {
+    float: left;
+}
+
+.wid30 {
+    width: 30px;
+    float: left;
+}
+
+.wid50 {
+    width: 50px;
+    float: left;
+}
+
+.wid70 {
+    width: 70px;
+    float: left;
+}
+
+.wid100 {
+    width: 100px;
+    float: left;
+}
+
+.wid150 {
+    width: 150px;
+    float: left;
+}
+
+.wid200 {
+    width: 200px;
+    float: left;
+}
+
+.padr10 {
+    padding-right: 10px;
+}
+
+.padr30 {
+    padding-right: 30px;
+}
+
+.marr10 {
+    margin-right: 10px;
+}
+
+.marr30 {
+    margin-right: 30px;
+}
+
+.time>dd.mdhhmm {
+    width: 80px;
+}
+
+.transitForm>.btn {
+    float: left;
+}
+
+.btn {
+    width: 100%;
+}
+
+.btn>dd {
+    width: 100%;
+    float: left;
+    margin-right: 10px;
+}
+
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+button {
+    background-color: #46a667 !important;
+    border-color: #46a667 !important;
+}
+
+button#btnSearch {
+    width: 40%;
+    margin: 0 auto;
+}
+
+button#btnBack {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.check {
+    background-color: #46a667 !important;
+    border-color: #46a667 !important;
+}
+
+.check:not(:checked) {
+    background-color: #fff !important;
+}
+
+ul.navSearchTime {
+    text-align: center;
+}

@@ -1,0 +1,336 @@
+<html>
+<link rel="stylesheet" href="./css/style.css" />
+<link rel="stylesheet" href="./css/bootstrap-5.0.0/bootstrap.min.css" />
+<script type="text/javascript" src="./js/bootstrap-5.0.0/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/dexie@3.0.2/dist/dexie.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/db_m_station.js"></script>
+<script type="text/javascript" src="./js/db_m_line.js"></script>
+<script type="text/javascript" src="./js/db_m_join.js"></script>
+<script type="text/javascript" src="./js/db_m_pref.js"></script>
+<!-- <script type="text/javascript" src="./js/logicdb.js"></script> -->
+<script type="text/javascript" src="./js/accessdb.js"></script>
+
+<head>
+  <title>交通費検索テスト</title>
+</head>
+
+<body>
+  <div class="contents">
+    <div class="transitApp">
+      <div class="appTitle">
+        <h1 class="title">交通費検索テスト</h1>
+      </div>
+      <form class="transitForm">
+        <div id="errorinfo"></div>
+        <dl class="fromto">
+          <dd style="width: 228px; float: left; position: relative;">
+            <input type="text" id="sfrom" class="form-control" placeholder="出発" autocomplete="off" value="大手町" />
+          </dd>
+          <dd id="exchange" style="
+                width: 30px;
+                float: left;
+                position: relative;
+                text-align: center;
+                vertical-align: middle;
+              ">
+            ⇔
+          </dd>
+          <dd id="to" style="width: 228px; float: left; position: relative;">
+            <input type="text" id="sto" class="form-control" placeholder="到着" autocomplete="off" value="銀座" />
+          </dd>
+        </dl>
+        <dl class="option time">
+          <dt class="label"><span>日時</span></dt>
+          <dd class="marr10">
+            <select class="form-select" id="y" name="y">
+              <option value="2021">2021年</option>
+              <option value="2022">2022年</option>
+              <option value="2023">2023年</option>
+            </select>
+          </dd>
+          <dd class="mdhhmm marr10">
+            <select class="form-select" id="m" name="m">
+              <option value="01">1月</option>
+              <option value="02">2月</option>
+              <option value="03">3月</option>
+              <option value="04">4月</option>
+              <option value="05">5月</option>
+              <option value="06">6月</option>
+              <option value="07">7月</option>
+              <option value="08">8月</option>
+              <option value="09">9月</option>
+              <option value="10">10月</option>
+              <option value="11">11月</option>
+              <option value="12">12月</option>
+            </select>
+          </dd>
+          <dd class="mdhhmm marr10">
+            <select class="form-select" id="d" name="d">
+              <option value="01">1日</option>
+              <option value="02">2日</option>
+              <option value="03">3日</option>
+              <option value="04">4日</option>
+              <option value="05">5日</option>
+              <option value="06">6日</option>
+              <option value="07">7日</option>
+              <option value="08">8日</option>
+              <option value="09">9日</option>
+              <option value="10">10日</option>
+              <option value="11">11日</option>
+              <option value="12">12日</option>
+              <option value="13">13日</option>
+              <option value="14">14日</option>
+              <option value="15">15日</option>
+              <option value="16">16日</option>
+              <option value="17">17日</option>
+              <option value="18">18日</option>
+              <option value="19">19日</option>
+              <option value="20">20日</option>
+              <option value="21">21日</option>
+              <option value="22">22日</option>
+              <option value="23">23日</option>
+              <option value="24">24日</option>
+              <option value="25">25日</option>
+              <option value="26">26日</option>
+              <option value="27">27日</option>
+              <option value="28">28日</option>
+              <option value="29">29日</option>
+              <option value="30">30日</option>
+              <option value="31">31日</option>
+            </select>
+          </dd>
+          <dd class="mdhhmm marr10">
+            <select class="form-select" id="hh" name="hh">
+              <option value="00">0時</option>
+              <option value="01">1時</option>
+              <option value="02">2時</option>
+              <option value="03">3時</option>
+              <option value="04">4時</option>
+              <option value="05">5時</option>
+              <option value="06">6時</option>
+              <option value="07">7時</option>
+              <option value="08">8時</option>
+              <option value="09">9時</option>
+              <option value="10">10時</option>
+              <option value="11">11時</option>
+              <option value="12">12時</option>
+              <option value="13">13時</option>
+              <option value="14">14時</option>
+              <option value="15">15時</option>
+              <option value="16">16時</option>
+              <option value="17">17時</option>
+              <option value="18">18時</option>
+              <option value="19">19時</option>
+              <option value="20">20時</option>
+              <option value="21">21時</option>
+              <option value="22">22時</option>
+              <option value="23">23時</option>
+              <option value="24">24時</option>
+              <option value="25">25時</option>
+            </select>
+          </dd>
+          <dd class="mdhhmm marr10">
+            <select class="form-select" id="mm" name="mm">
+              <option value="00">00分</option>
+              <option value="01">01分</option>
+              <option value="02">02分</option>
+              <option value="03">03分</option>
+              <option value="04">04分</option>
+              <option value="05">05分</option>
+              <option value="06">06分</option>
+              <option value="07">07分</option>
+              <option value="08">08分</option>
+              <option value="09">09分</option>
+              <option value="10">10分</option>
+              <option value="11">11分</option>
+              <option value="12">12分</option>
+              <option value="13">13分</option>
+              <option value="14">14分</option>
+              <option value="15">15分</option>
+              <option value="16">16分</option>
+              <option value="17">17分</option>
+              <option value="18">18分</option>
+              <option value="19">19分</option>
+              <option value="20">20分</option>
+              <option value="21">21分</option>
+              <option value="22">22分</option>
+              <option value="23">23分</option>
+              <option value="24">24分</option>
+              <option value="25">25分</option>
+              <option value="26">26分</option>
+              <option value="27">27分</option>
+              <option value="28">28分</option>
+              <option value="29">29分</option>
+              <option value="30">30分</option>
+              <option value="31">31分</option>
+              <option value="32">32分</option>
+              <option value="33">33分</option>
+              <option value="34">34分</option>
+              <option value="35">35分</option>
+              <option value="36">36分</option>
+              <option value="37">37分</option>
+              <option value="38">38分</option>
+              <option value="39">39分</option>
+              <option value="40">40分</option>
+              <option value="41">41分</option>
+              <option value="42">42分</option>
+              <option value="43">43分</option>
+              <option value="44">44分</option>
+              <option value="45">45分</option>
+              <option value="46">46分</option>
+              <option value="47">47分</option>
+              <option value="48">48分</option>
+              <option value="49">49分</option>
+              <option value="50">50分</option>
+              <option value="51">51分</option>
+              <option value="52">52分</option>
+              <option value="53">53分</option>
+              <option value="54">54分</option>
+              <option value="55">55分</option>
+              <option value="56">56分</option>
+              <option value="57">57分</option>
+              <option value="58">58分</option>
+              <option value="59">59分</option>
+            </select>
+          </dd>
+        </dl>
+        <dl class="option2 time">
+          <dd class="wid70"></dd>
+          <dd class="wid30">
+            <input class="form-check-input" type="radio" name="type" id="isDep" value="" />
+          </dd>
+          <dd class="wid50"><span>出発</span></dd>
+          <dd class="wid30">
+            <input class="form-check-input" type="radio" name="type" id="isArr" value="" />
+          </dd>
+          <dd class="wid50"><span>到着</span></dd>
+          <dd class="wid30">
+            <input class="form-check-input" type="radio" name="type" id="isFir" value="" />
+          </dd>
+          <dd class="wid50"><span>始発</span></dd>
+          <dd class="wid30">
+            <input class="form-check-input" type="radio" name="type" id="isLas" value="" />
+          </dd>
+          <dd class="wid50"><span>終電</span></dd>
+          <dd class="wid30">
+            <input class="form-check-input" type="radio" name="type" id="isAvr" value="" />
+          </dd>
+          <dd class="wid70"><span>指定なし</span></dd>
+        </dl>
+        <dl class="option2 fare">
+          <dt class="label"><span>運賃</span></dt>
+          <dd class="label2">
+            <label class="form-label" for="ticket">種別</label>
+          </dd>
+          <dd class="wid150 marr30">
+            <select class="form-select" id="ticket" name="ticket">
+              <option value="ic">ICカード優先</option>
+              <option value="cash">現金（きっぷ）優先</option>
+            </select>
+          </dd>
+          <dd class="label2"><span>座席</span></dd>
+          <dd class="wid150">
+            <select class="form-select" id="expkind" name="expkind">
+              <option value="1">自由席優先</option>
+              <option value="2">指定席優先</option>
+              <option value="3">グリーン席優先</option>
+            </select>
+          </dd>
+        </dl>
+        <dl class="option2 cond">
+          <dt class="label"><span>条件</span></dt>
+          <dd class="label2 wid70"><span>歩く速度</span></dd>
+          <dd class="wid150 marr30">
+            <select class="form-select" id="disporder" name="disporder">
+              <option value="1">急いで</option>
+              <option value="2">少し急いで</option>
+              <option value="3">少しゆっくり</option>
+            </select>
+          </dd>
+          <dd class="label2 wid70"><span>表示順序</span></dd>
+          <dd class="wid150">
+            <select class="form-select" id="walksp" name="walksp">
+
+              <option value="1">到着が早い順</option>
+              <option value="2">乗り換え回数順</option>
+              <option value="3">料金が安い順</option>
+            </select>
+          </dd>
+        </dl>
+        <dl class="option2 trans">
+          <dt class="label"><span>手段</span></dt>
+          <dd class="wid30">
+            <input class="check form-check-input" type="checkbox" name="air" id="air" value="" checked />
+          </dd>
+          <dd class="wid50">
+            <label class="form-check-label" for="air">空路</label>
+          </dd>
+          <dd class="wid30">
+            <input class="check form-check-input" type="checkbox" name="shin" id="shin" value="" checked />
+          </dd>
+          <dd class="wid70">
+            <label class="form-check-label" for="shin">新幹線</label>
+          </dd>
+          <dd class="wid30">
+            <input class="check form-check-input" type="checkbox" name="exp" id="exp" value="" checked />
+          </dd>
+          <dd class="wid70">
+            <label class="form-check-label" for="exp">有料特急</label>
+          </dd>
+          <dd class="wid30">
+            <input class="check form-check-input" type="checkbox" name="exbus" id="exbus" value="" checked />
+          </dd>
+          <dd class="wid70">
+            <label class="form-check-label" for="exbus">高速バス</label>
+          </dd>
+          <dd class="wid30">
+            <input class="check form-check-input" type="checkbox" name="bus" id="bus" value="" checked />
+          </dd>
+          <dd class="wid100">
+            <label class="form-check-label" for="bus">路線/連絡バス</label>
+          </dd>
+          <dd class="wid30">
+            <input class="check form-check-input" type="checkbox" name="fer" id="fer" value="" checked />
+          </dd>
+          <dd class="wid70">
+            <label class="form-check-label" for="fer">フェリー</label>
+          </dd>
+        </dl>
+        <!-- <dl>
+          <textarea class="form-control" rows="3" placeholder="本文" id="result"></textarea>
+        </dl> -->
+        <dl class="btn">
+          <!-- <dd>
+            <button type="button" class="btn btn-primary btn-block" id="btnTest">
+              データ取得
+            </button>
+          </dd> -->
+          <dd>
+            <button type="button" class="btn btn-primary btn-block" id="btnSearch">
+              路線検索
+            </button>
+          </dd>
+          <!-- <dd>
+            <button type="button" class="btn btn-primary btn-block" id="btnReset">
+              リセット
+            </button>
+          </dd> -->
+        </dl>
+      </form>
+      <div class="info">
+        <div class="infoBox">
+          <dl>
+            <dt><span>■使い方</span></dt>
+            <dd>
+              <span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

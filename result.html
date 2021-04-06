@@ -1,0 +1,95 @@
+<html>
+<link rel="stylesheet" href="./css/style.css" />
+<link rel="stylesheet" href="./css/bootstrap-5.0.0/bootstrap.min.css" />
+<script type="text/javascript" src="./js/bootstrap-5.0.0/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/dexie@3.0.2/dist/dexie.min.js"></script>
+<script type="text/javascript" src="./js/result.js"></script>
+<script type="text/javascript" src="./js/db_m_station.js"></script>
+<script type="text/javascript" src="./js/db_m_line.js"></script>
+<script type="text/javascript" src="./js/db_m_join.js"></script>
+<script type="text/javascript" src="./js/db_m_pref.js"></script>
+<script type="text/javascript" src="./js/accessdb.js"></script>
+
+<head>
+    <title>検索結果</title>
+</head>
+
+<body>
+    <div class="contents">
+        <div class="transitApp">
+            <div class="appTitle">
+                <h1 class="title">検索結果</h1>
+            </div>
+            <div class="transitForm">
+                <ul class="navSearchTime"><span id="searchDate" /></span><span id="searchTime"></span></ul>
+                <ul id="rtList" class="routeList">
+                    <li class="routerow">
+                        <dl>
+                            <dt>
+                                <div class="routetitle">ルート1</div>
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li class="time"><span>11:30→</span>
+                                        <span>11:45</span>
+                                    </li>
+                                    <li class="fare"><span>350円</span>
+                                    </li>
+                                    <li class="transfer"><span>乗換：0回</span>
+                                    </li>
+                                </ul>
+                                <ul class="route">
+                                    <li>
+                                        <span id="route1disp"></span>
+                                    </li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </li>
+                    <!-- ルート2 -->
+                    <li>
+                        <dl>
+                            <dt>
+                                <div class="routetitle">ルート2</div>
+                            </dt>
+                            <dd>
+                                <ul>
+                                    <li class="time"><span>11:30→</span>
+                                        <span>11:45</span>
+                                    </li>
+                                    <li class="fare"><span>350円</span>
+                                    </li>
+                                    <li class="transfer"><span>乗換：0回</span>
+                                    </li>
+                                </ul>
+                                <ul class="route">
+                                    <li><span id="route2disp"></span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+                <dl class="btn">
+                    <dd>
+                        <button type="button" class="btn btn-primary btn-block" id="btnBack">
+                            戻る
+                        </button>
+                    </dd>
+                </dl>
+            </div>
+            <div class="info">
+                <div class="infoBox">
+                    <dl>
+                        <dt><span>■使い方</span></dt>
+                        <dd>
+                            <span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
