@@ -17,5 +17,8 @@ $(document).ready(function () {
       .then(() => {
         window.location.href = './result.html';
       })
+      .catch((error) => {
+        // 何もしない
+      })
   });
 });

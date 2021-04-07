@@ -47,11 +47,11 @@ async function getDbStationByStNm(stFrNm, stToNm) {
   // エラーメッセージを消す
   $("div#searchError").remove()
 
+  // stFrNm（出発駅名）に紐つく駅一覧を取得
   await db.station
     .where("station_name")
     .equals(stFrNm.trim())
     .each((station) => {
-      // stFrNm（出発駅名）に紐つく駅一覧を取得
       const tmpStArr = {
         station_cd: station.station_cd,
         line_cd: station.line_cd,
@@ -64,12 +64,12 @@ async function getDbStationByStNm(stFrNm, stToNm) {
     errormsg = errormsg + "該当する出発地が見つかりませんでした。"
   }
 
+  // stToNm（到着駅名）に紐つく駅一覧を取得
   await db.station
     .where("station_name")
     .equals(stToNm.trim())
     .each((station) => {
 
-      // stToNm（到着駅名）に紐つく駅一覧を取得
       const tmpToArr = {
         station_cd: station.station_cd,
         line_cd: station.line_cd,
@@ -87,9 +87,8 @@ async function getDbStationByStNm(stFrNm, stToNm) {
   }
   if (errormsg != "") {
     // ボタン連打対策
-    $("#btnSearch").prop("disabled", false);
-    $("div#errorinfo").append(errorbox.replace("{$errormsg}", errormsg))
-    return
+    returnError(errorbox, errormsg)
+    throw new Error("到着地エラー")
   }
 
   for (const stFr of stFrArr) {
@@ -102,21 +101,6 @@ async function getDbStationByStNm(stFrNm, stToNm) {
       if (resLineBySt != null) {
         result.push({ "line_cd": stFr.line_cd, "station_name_fr": stFr.station_name, "station_name_to": stTo.station_name })
       }
-      // })
-      // 1路線ヒットしなかったからといってエラーにするのはNG
-      // 全ループ終わって、ヒットなしならエラー
-      // .catch((error) => {
-      //   // 出発駅の路線上に到着駅が存在しなかった場合
-      //   if (errormsg != "") {
-      //     // 出発地エラーの場合、頭に改行を入れる
-      //     errormsg = errormsg + "<br/>"
-      //   }
-      //   errormsg = errormsg + "到着駅が出発駅と同じ路線にありませんでした。"
-      //   // ボタン連打対策
-      //   $("#btnSearch").prop("disabled", false);
-      //   $("div#errorinfo").append(errorbox.replace("{$errormsg}", errormsg))
-      //   return
-      // })
     }
   }
 
@@ -130,7 +114,8 @@ async function getDbStationByStNm(stFrNm, stToNm) {
 
       // 検索画面の各入力項目をセット
       rs.search_date = $("select#y").val() + "年" + $("select#m").val() + "月" + $("select#d").val() + "日"
-      rs.search_time = $("select#hh").val() + "時" + $("select#mm").val() + "分出発"
+      rs.search_time = $("select#hh").val() + "時" + $("select#mm").val() + "分"
+      // 語尾の「出発」はラジオボタンの選択による
 
       // 【未対応】ラジオボタンの選択によって末尾の文言変更
 
@@ -140,13 +125,26 @@ async function getDbStationByStNm(stFrNm, stToNm) {
           console.log(error);
         });
     }
+  } else {
+    // 検索結果0件の場合
+    errormsg = errormsg + "検索結果が0件でした。"
+    returnError(errorbox, errormsg)
+
+    throw new Error("検索結果0件")
   }
+}
+
+function returnError(errorbox, errormsg) {
+  // ボタン連打対策
+  $("#btnSearch").prop("disabled", false);
+  $("div#errorinfo").append(errorbox.replace("{$errormsg}", errormsg))
 }
 
 // tmpテーブルから全件取得
 async function getTmpData() {
   let tmpArr = [];
-  db.tmp.toArray()
+  // awaitを入れないとforループが先に走ってしまい画面に結果が表示されない
+  await db.tmp.toArray()
     .then((tmp) => {
       tmpArr.push(tmp)
     })
