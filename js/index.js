@@ -20,5 +20,5 @@ $(document).ready(function () {
       .catch((error) => {
         // 何もしない
       })
-  });
+  })
 });

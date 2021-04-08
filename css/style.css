@@ -40,7 +40,6 @@
 
 ul.routeList {
     border: 2px solid #46a667;
-    /* font-size: 123.1%; */
     overflow: hidden;
 }
 
@@ -70,26 +69,34 @@ ul.routeList dd {
 
 ul.routeList dd li {
     margin-left: 10px;
-    float: left;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 ul.routeList dd .time {
-    width: 41%;
+    width: 22%;
 }
 
 ul.routeList dd .fare {
-    width: 16%;
+    width: 22%;
     margin-left: 0;
     text-align: right;
 }
 
+ul.routeList dd .reqtime {
+    width: 22%;
+    margin-left: 0;
+    text-align: left;
+    font-size: 85%;
+}
+
 ul.routeList dd .transfer {
-    width: 16%;
+    width: 22%;
     text-align: left;
 }
 
 ul.routeList dd ul.route {
-    margin-top: 40px;
+    margin-top: 18px;
 }
 
 .transitApp>.info {
