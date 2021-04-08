@@ -24,20 +24,12 @@
       <form class="transitForm">
         <div id="errorinfo"></div>
         <dl class="fromto">
-          <dd style="width: 228px; float: left; position: relative;">
-            <input type="text" id="sfrom" class="form-control" placeholder="出発" autocomplete="off" value="" />
+          <dd>
+            <input type="text" id="sfrom" class="sfrom form-control" placeholder="出発" autocomplete="off" value="" />
           </dd>
-          <dd id="exchange" style="
-                width: 30px;
-                float: left;
-                position: relative;
-                text-align: center;
-                vertical-align: middle;
-              ">
-            ⇔
-          </dd>
-          <dd id="to" style="width: 228px; float: left; position: relative;">
-            <input type="text" id="sto" class="form-control" placeholder="到着" autocomplete="off" value="" />
+          <dd><span class="rightarw">⇒</span></dd>
+          <dd>
+            <input type="text" id="sto" class="sto form-control" placeholder="到着" autocomplete="off" value="" />
           </dd>
         </dl>
         <dl class="option time">
@@ -198,23 +190,23 @@
         <dl class="option2 time">
           <dd class="wid70"></dd>
           <dd class="wid30">
-            <input class="form-check-input" type="radio" name="type" id="isDep" value="" />
+            <input class="check form-check-input" type="radio" name="type" id="isDep" value="" checked />
           </dd>
           <dd class="wid50"><span>出発</span></dd>
           <dd class="wid30">
-            <input class="form-check-input" type="radio" name="type" id="isArr" value="" />
+            <input class="check form-check-input" type="radio" name="type" id="isArr" value="" />
           </dd>
           <dd class="wid50"><span>到着</span></dd>
           <dd class="wid30">
-            <input class="form-check-input" type="radio" name="type" id="isFir" value="" />
+            <input class="check form-check-input" type="radio" name="type" id="isFir" value="" />
           </dd>
           <dd class="wid50"><span>始発</span></dd>
           <dd class="wid30">
-            <input class="form-check-input" type="radio" name="type" id="isLas" value="" />
+            <input class="check form-check-input" type="radio" name="type" id="isLas" value="" />
           </dd>
           <dd class="wid50"><span>終電</span></dd>
           <dd class="wid30">
-            <input class="form-check-input" type="radio" name="type" id="isAvr" value="" />
+            <input class="check form-check-input" type="radio" name="type" id="isAvr" value="" />
           </dd>
           <dd class="wid70"><span>指定なし</span></dd>
         </dl>
@@ -297,35 +289,24 @@
             <label class="form-check-label" for="fer">フェリー</label>
           </dd>
         </dl>
-        <!-- <dl>
-          <textarea class="form-control" rows="3" placeholder="本文" id="result"></textarea>
-        </dl> -->
         <dl class="btn">
-          <!-- <dd>
-            <button type="button" class="btn btn-primary btn-block" id="btnTest">
-              データ取得
-            </button>
-          </dd> -->
           <dd>
             <button type="button" class="btn btn-primary btn-block" id="btnSearch">
               路線検索
             </button>
           </dd>
-          <!-- <dd>
-            <button type="button" class="btn btn-primary btn-block" id="btnReset">
-              リセット
-            </button>
-          </dd> -->
         </dl>
       </form>
       <div class="info">
         <div class="infoBox">
-          <dl>
-            <dt><span>■使い方</span></dt>
-            <dd>
-              <span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-            </dd>
-          </dl>
+          <span>
+            当サイトはRPAソフトウェアの練習台として使えるサイトです。<br />
+            自由に使ってかまいませんが、下記事項にご留意ください。<br /><br />
+            <ul>
+              <li><b>出発駅と到着駅が同一路線にある場合のみ</b>検索ヒットします。</li>
+              <li>出発駅、到着駅に存在しない駅名を入れるとエラーとなります。駅名が空白の場合も同様です。</li>
+              <li></li>
+          </span>
         </div>
       </div>
     </div>
