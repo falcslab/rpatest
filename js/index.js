@@ -10,6 +10,9 @@ $(document).ready(function () {
   $("#btnTest").on("click", function () {
     getData();
   });
+  $("#ticket").change(function () {
+    $("#expkind").prop('disabled', true);
+  });
   $("#btnSearch").on("click", function () {
     // ボタン連打対策
     $("#btnSearch").prop("disabled", true);
