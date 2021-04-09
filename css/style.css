@@ -190,10 +190,6 @@ li.routerow {
     height: 38px;
 }
 
-.wid50 {
-    width: 50px;
-}
-
 .wid60 {
     width: 60px;
 }
@@ -202,16 +198,16 @@ li.routerow {
     width: 70px;
 }
 
+.wid90 {
+    width: 90px;
+}
+
 .wid100 {
     width: 100px;
 }
 
 .wid150 {
     width: 150px;
-}
-
-.wid200 {
-    width: 200px;
 }
 
 .padr10 {
@@ -228,10 +224,6 @@ li.routerow {
 
 .marr30 {
     margin-right: 30px;
-}
-
-.time>dd.mdhhmm {
-    width: 80px;
 }
 
 .transitForm>.btn {
