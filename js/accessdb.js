@@ -3,7 +3,7 @@ const db = new Dexie("transitRPATest");
 const basefare = 200
 const addfare = 10
 const addBaseMinutes = 2
-const routeTag = '<li class="routerow"><dl><dt><div class="routetitle">ルート{$routeNo}</div>' +
+const routeTag = '<li class="routerow"><dl class="result"><dt><div class="routetitle">ルート{$routeNo}</div>' +
   '</dt><dd><ul><li class="time"><span>{$departure}→</span><span>{$arrive}</span></li>' +
   '<li class="reqtime"><span>{$reqTime}</span></li>' +
   '<li class="fare"><span>{$fare}円</span></li><li class="transfer"><span>乗換：0回</span>' +
