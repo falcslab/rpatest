@@ -24,12 +24,12 @@
       <form class="transitForm">
         <div id="errorinfo"></div>
         <dl class="fromto">
-          <dd>
-            <input type="text" id="sfrom" class="sfrom form-control" placeholder="出発" autocomplete="off" value="" />
+          <dd class="sfrom">
+            <input type="text" id="sfrom" class="form-control" placeholder="出発" autocomplete="off" value="" />
           </dd>
           <dd><span class="rightarw">⇒</span></dd>
-          <dd>
-            <input type="text" id="sto" class="sto form-control" placeholder="到着" autocomplete="off" value="" />
+          <dd class="sto">
+            <input type="text" id="sto" class="form-control" placeholder="到着" autocomplete="off" value="" />
           </dd>
         </dl>
         <dl class="option time">
@@ -189,26 +189,26 @@
         </dl>
         <dl class="option2 time">
           <dd class="wid70"></dd>
-          <dd class="wid30">
+          <dd class="radio">
             <input class="check form-check-input" type="radio" name="type" id="isDep" value="" checked />
           </dd>
-          <dd class="wid50"><span>出発</span></dd>
-          <dd class="wid30">
+          <dd class="radiotext"><span>出発</span></dd>
+          <dd class="radio">
             <input class="check form-check-input" type="radio" name="type" id="isArr" value="" />
           </dd>
-          <dd class="wid50"><span>到着</span></dd>
-          <dd class="wid30">
+          <dd class="radiotext"><span>到着</span></dd>
+          <dd class="radio">
             <input class="check form-check-input" type="radio" name="type" id="isFir" value="" />
           </dd>
-          <dd class="wid50"><span>始発</span></dd>
-          <dd class="wid30">
+          <dd class="radiotext"><span>始発</span></dd>
+          <dd class="radio">
             <input class="check form-check-input" type="radio" name="type" id="isLas" value="" />
           </dd>
-          <dd class="wid50"><span>終電</span></dd>
-          <dd class="wid30">
+          <dd class="radiotext"><span>終電</span></dd>
+          <dd class="radio">
             <input class="check form-check-input" type="radio" name="type" id="isAvr" value="" />
           </dd>
-          <dd class="wid70"><span>指定なし</span></dd>
+          <dd class="radiotext wid70"><span>指定なし</span></dd>
         </dl>
         <dl class="option2 fare">
           <dt class="label"><span>運賃</span></dt>
@@ -252,40 +252,40 @@
         </dl>
         <dl class="option2 trans">
           <dt class="label"><span>手段</span></dt>
-          <dd class="wid30">
+          <dd class="chkbox">
             <input class="check form-check-input" type="checkbox" name="air" id="air" value="" checked />
           </dd>
-          <dd class="wid50">
+          <dd class="chkboxtext">
             <label class="form-check-label" for="air">空路</label>
           </dd>
-          <dd class="wid30">
+          <dd class="chkbox">
             <input class="check form-check-input" type="checkbox" name="shin" id="shin" value="" checked />
           </dd>
-          <dd class="wid70">
+          <dd class="chkboxtext wid60">
             <label class="form-check-label" for="shin">新幹線</label>
           </dd>
-          <dd class="wid30">
+          <dd class="chkbox">
             <input class="check form-check-input" type="checkbox" name="exp" id="exp" value="" checked />
           </dd>
-          <dd class="wid70">
+          <dd class="chkboxtext wid70">
             <label class="form-check-label" for="exp">有料特急</label>
           </dd>
-          <dd class="wid30">
+          <dd class="chkbox">
             <input class="check form-check-input" type="checkbox" name="exbus" id="exbus" value="" checked />
           </dd>
-          <dd class="wid70">
+          <dd class="chkboxtext wid70">
             <label class="form-check-label" for="exbus">高速バス</label>
           </dd>
-          <dd class="wid30">
+          <dd class="chkbox">
             <input class="check form-check-input" type="checkbox" name="bus" id="bus" value="" checked />
           </dd>
-          <dd class="wid100">
+          <dd class="chkboxtext wid100">
             <label class="form-check-label" for="bus">路線/連絡バス</label>
           </dd>
-          <dd class="wid30">
+          <dd class="chkbox">
             <input class="check form-check-input" type="checkbox" name="fer" id="fer" value="" checked />
           </dd>
-          <dd class="wid70">
+          <dd class="chkboxtext wid70">
             <label class="form-check-label" for="fer">フェリー</label>
           </dd>
         </dl>

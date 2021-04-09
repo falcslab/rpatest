@@ -10,6 +10,7 @@ $(document).ready(function () {
   $("#btnTest").on("click", function () {
     getData();
   });
+  // テストコード
   $("#ticket").change(function () {
     $("#expkind").prop('disabled', true);
   });
