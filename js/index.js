@@ -6,10 +6,10 @@ $(document).ready(function () {
   // $(".transitForm #title").val("");
   // $(".transitForm #body").val("");
 
-  $("#isFir").change(function () {
+  $("#isFir,#isLas").change(function () {
     $("#hh, #mm").prop("disabled", true);
   });
-  $("#isDep,#isArr,#isLas,#isAvr").change(function () {
+  $("#isDep,#isArr,#isAvr").change(function () {
     $("#hh, #mm").prop("disabled", false);
   });
   $("#btnSearch").on("click", function () {
